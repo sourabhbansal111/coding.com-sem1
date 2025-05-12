@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CODING.COM | LEARN | HTML | CSS</title>
+    <link rel="icon" href="./images/icon.jpg" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Inria Sans", sans-serif;
+        box-sizing: border-box;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #fcfcfc;
+        border-bottom: 1px rgba(128, 128, 128, 0.263) solid;
+        z-index: 1;
+      }
+
+      header .navbar-nav .nav-link:hover {
+        background-color: rgba(128, 128, 128, 0.307);
+        color: #5a0aff;
+      }
+
+      .welcome {
+        display: flex;
+        height: 350px;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-bottom: 1px solid gray;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeIn 1s forwards;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .welcome .content {
+        flex: 1;
+      }
+
+      .welcome .content h1 {
+        font-size: 2.5rem;
+        font-family: "Reddit Sans", sans-serif;
+        font-weight: 500;
+        padding-bottom: 8px;
+      }
+
+      .welcome .content h1 span {
+        color: #8d46ff;
+      }
+
+      .welcome .content h2 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        font-family: "Reddit Sans", sans-serif;
+        padding-bottom: 10px;
+      }
+
+      .welcome .content h2 span {
+        color: #8d46ff;
+      }
+
+      .welcome .content p {
+        font-family: "Reddit Sans", sans-serif;
+        width: 550px;
+        color: rgb(77, 72, 72);
+        font-weight: 400;
+      }
+
+      .welcome .carousel {
+        flex: 1;
+      }
+
+      .carousel-inner img {
+        height: 400px;
+      }
+
+      .recommended {
+        display: flex;
+        gap: 20px;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 20px;
+      }
+
+      .recommended .course {
+        width: 300px;
+        text-align: left;
+        border-radius: 20px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.24);
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
+      }
+
+      .recommended .course:hover {
+        transform: scale(1.05);
+      }
+
+      .recommended .course img {
+        width: 100%;
+        height: 45%;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+      }
+
+      .recommended .course .details {
+        padding: 20px;
+      }
+
+      .recommended .course button {
+        font-size: large;
+        padding: 10px;
+        border-radius: 25px;
+        background-color: #7d24c6;
+        color: white;
+        transition: background-color 0.3s ease;
+      }
+
+      .recommended .course button:hover {
+        background-color: #5a0aff;
+      }
+
+      .trusted-partners h2 {
+        font-family: "Reddit Sans", sans-serif;
+        font-size: 1.75rem;
+        font-weight: bold;
+        margin-top: 10px;
+      }
+
+      .trusted-partners span {
+        color: #8d46ff;
+      }
+
+      @media (max-width: 600px) {
+        header .navbar-nav {
+          flex-direction: column;
+        }
+
+        .welcome {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .welcome .content {
+          width: 100%;
+        }
+
+        .recommended {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">Home</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav gap-3">
+              <li class="nav-item"><a class="nav-link active" href="courses.html">Courses</a></li>
+              <li class="nav-item"><a class="nav-link active" href="html.html">HTML</a></li>
+              <li class="nav-item"><a class="nav-link active" href="css.html">CSS</a></li>
+              <li class="nav-item"><a class="nav-link active" href="aboutus.html">About Us</a></li>
+            </ul>
+          </div>
+          <a class="navbar-brand" href="#"><img src="images/logo.jpg" alt="Logo" width="130" height="50"></a>
+          <button class="btn btn-primary" ><a href="login.html" class="text-white">Log In</a></button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="welcome">
+        <div class="content">
+          <h1>Welcome to <span>Coding.com</span></h1>
+          <h2>Learn <a href="html.html"><span>HTML</span></a> and <a href="css.html"><span>CSS</span></a></h2>
+          <p>
+            Confused on which course to take? I have got you covered. Browse courses and find the best one for you. It's free! Coding.com is my attempt to teach coding techniques to people in a short time.
+          </p>
+        </div>
+
+        <div class="carousel slide" id="carouselExampleInterval" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="2000">
+              <img src="./images/homepage1.jpg" class="d-block w-100" alt="Course Image 1">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="./images/homepage2.jpg" class="d-block w-100" alt="Course Image 2">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="./images/homepage3.jpg" class="d-block w-100" alt="Course Image 3">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="./images/homepage4.jpg" class="d-block w-100" alt="Course Image 4">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="recommended">
+        <h1>Recommended Courses</h1>
+        <div class="course">
+          <img src="./images/recomendimg5.jpg" alt="Web Dev Tutorials for Beginners">
+          <div class="details">
+            <p>FREE COURSE</p>
+            <p><b>Web Dev Tutorials For Beginners</b></p>
+            <p>This course teaches HTML, CSS, JavaScript, and everything you need to become a web developer.</p>
+            <button>Start Watching</button>
+          </div>
+        </div>
+        <div class="course">
+          <img src="./images/recomendimg4.jpg" alt="Sanity.io Tutorials in Hindi">
+          <div class="details">
+            <p>FREE COURSE</p>
+            <p><b>Sanity.io Tutorials in Hindi</b></p>
+            <p>This course covers the Sanity.io platform and includes hands-on projects for better learning.</p>
+            <button>Start Watching</button>
+          </div>
+        </div>
+        <div class="course">
+          <img src="./images/recomendimg6.jpg" alt="Data Structures Course">
+          <div class="details">
+            <p>FREE COURSE</p>
+            <p><b>Data Structures Course</b></p>
+            <p>Learn the essentials of data structures and algorithms, a crucial part of computer science.</p>
+            <button>Start Watching</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="trusted-partners">
+        <h2>Trusted Partners: <span>CodeWithHarry</span></h2>
+        <a href="https://www.youtube.com/@CodeWithHarry"><img src="./images/partners.jpg" alt="Head to YouTube" /></a>
+      </section>
+    </main>
+  </body>
+</html>

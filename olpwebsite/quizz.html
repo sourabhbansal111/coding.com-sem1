@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CODING.COM | quiz</title>
+    <link rel="icon" href="./images/icon.jpg" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Inria Sans", sans-serif;
+        overflow-x: hidden;
+        box-sizing: border-box;
+      }
+
+      a {
+        text-decoration: none;
+      }
+      .container-custom {
+            max-width: 1440px;
+            margin: 0 auto; /* Center the container */
+        }
+        .container-fluid{
+        background-color: white; 
+        padding: 0 10px 0 10px
+      }
+
+      .main {
+        width: 100vw;
+        height: 80px;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        background-color: #fcfcfc;
+        border-bottom: 1px rgba(128, 128, 128, 0.263) solid;
+        transition: background-color 0.3s ease;
+      }
+
+      .nav-link:hover {
+        background-color: rgba(128, 128, 128, 0.307);
+        color: #5a0aff;
+      }
+      #userName {
+        position: relative;
+      }
+
+      #userDetails {
+        display: none; /* Hide details initially */
+        position: absolute;
+        background-color: white;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        /* Adjust as needed */
+      }
+      .navbar-brand{
+        margin-left: 200px;
+      }
+
+      #userName:hover + #userDetails {
+        display: block; /* Show details when hovering over the username */
+      }
+      
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; /* Align content at the top */
+        min-height: 100vh; /* Ensures body takes up full height */
+        margin: 0;
+        overflow-y: auto; /* Allows scrolling if content overflows */
+      }
+
+      /* Main container for the quiz categories */
+      .quiz-container {
+        width: 80%;
+        max-width: 1000px; /* Max width for the quiz container */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+        grid-gap: 20px; /* Spacing between the cards */
+        margin-top: 140px;
+        margin-left: 100px;
+        padding: 20px; /* Space from the top */
+      }
+
+      /* Styles for individual quiz boxes */
+      .quiz-box {
+        background-color: #fff;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .quiz-box:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Image styling */
+      .quiz-box img {
+        width: 100%;
+        height: 200px; /* Fixed height to ensure uniformity */
+        object-fit: contain; /* Ensures the entire image is visible without cropping */
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+
+      /* Heading and paragraph styling */
+      .quiz-box a {
+        color: white;
+      }
+      .quiz-box>a>button {
+        /* padding: 10px 140px 10px 140px; */
+        /* padding: 2.5% 30% 2.5% 30%; */
+        width: 100%;
+      }
+      .quiz-box h2 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #333;
+        overflow: hidden;
+      }
+
+      .quiz-box p {
+        font-size: 1.2em;
+        color: #666;
+      }
+
+      /* Button styling */
+      .quiz-box button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .quiz-box button:hover {
+        background-color: #218838;
+      }
+
+      /* Media Query for smaller screens */
+      @media (max-width: 800px) {
+        #logoo{
+        background-image: url(images/logo.jpg);
+        height: 50px;
+        width: 150px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+
+        margin-right: 50px;
+      }
+        .quiz-container {
+          grid-template-columns: 1fr; /* Stack the cards vertically on smaller screens */
+          width: 90%;
+          margin-top: 160px;
+          margin-left: 50px;
+        }
+
+        .quiz-box {
+          padding: 15px;
+        }
+
+        .quiz-box h2 {
+          font-size: 2em;
+        }
+
+        .quiz-box p {
+          font-size: 1em;
+        }
+
+        .quiz-box img {
+          height: 180px; /* Slightly smaller images on smaller screens */
+        }
+
+        .quiz-box button {
+          font-size: 1em;
+          padding: 8px 16px;
+        }
+      }
+
+      /* Media Query for very small screens */
+      @media (max-width: 480px) {
+        .quiz-container {
+          grid-template-columns: 1fr; /* Cards will be stacked vertically */
+          width: 100%;
+          margin-top: 210px;
+          margin-left: 0;
+        }
+
+        .quiz-box h2 {
+          font-size: 1.8em;
+        }
+
+        .quiz-box p {
+          font-size: 0.9em;
+        }
+
+        .quiz-box img {
+          height: 160px; /* Smaller images for very small screens */
+        }
+
+        .quiz-box button {
+          font-size: 0.9em;
+          padding: 6px 12px;
+        }
+        #loginButtonContainer {
+          padding: 0;
+        } 
+        .boxes {
+        padding-top: 210px;
+
+      }
+      #logoo{
+        background-image: url(images/logo.jpg);
+        height: 50px;
+        width: 150px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+
+        margin: 0 30px 0 20px;
+      }
+      
+      .navbar-brand{
+        margin-left: 0;
+        display: none;
+      }
+      .container-fluid{
+        background-color: white; 
+        padding: 0 0 0 50px
+      }
+      }
+      .navbar-toggler{
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-custom">
+   <!-- nav bar starts here -->
+   <div>
+    <nav
+      class="navbar navbar-expand-lg bg-body-tertiary fixed-top container-custom " 
+    >
+      <div
+        class="container-fluid"
+        
+      >
+        <!-- Main Navbar with Links -->
+        <!-- <a class="navbar-brand" href="index.html"><p class="text-primary nav-link">Home</p></a> -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav gap-3">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="index.html"
+                ><p class="text-primary">Home</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="courses.html"
+                ><p class="text-primary">Courses</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="html.html"
+                ><p class="text-primary">HTML</p></a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="CSS.html"
+                ><p class="text-primary">CSS</p></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="aboutus.html"
+                ><p class="text-primary">About Us</p></a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="quizz.html"
+                ><p class="text-primary">quiz</p></a
+              >
+            </li>
+          </ul>
+          <a class="navbar-brand" href="index.html" >
+            <img src="/images/logo.jpg" alt="Logo" width="130" height="50" />
+          </a>
+        </div>
+        <div id="logoo"></div>
+
+        
+
+        <div
+        id="userDetails"
+        style="
+          display: none;
+          position: sticky;
+          background-color: white;
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+          padding: 0 8px 0 8px;
+        "
+      >
+        <!-- User details will go here -->
+        <p><strong>Name:</strong> <span id="userDetailsName"></span></p>
+        <p><strong>Email:</strong> <span id="userDetailsEmail"></span></p>
+        <p><strong>Phone No.:</strong> <span id="userPhone"></span></p>
+      </div>
+      <div
+        id="loginButtonContainer"
+        style="
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          padding-bottom: 20px;
+          overflow: hidden;
+        "
+      >
+        <div
+          id="userSection"
+          
+          style="width: 300px; height: 110px; "
+        >
+          <a
+            href="login.html"
+            style="
+              width: 280px;
+              height: 55px;
+              color: white;
+              padding-right: 50px;
+            "
+            ><button
+              id="loginBtn"
+              class="btn btn-primary"
+              style="
+                width: 280px;
+                height: 55px;
+                padding: 10px;
+                overflow-y: hidden;
+                margin-top: 30px;
+              "
+            >
+              Login
+            </button></a
+          >
+        </div>
+
+        <span id="userNameDisplay" style="display: none"></span>
+      </div>
+    </div>
+  </nav>
+  </div>
+  <!-- nav bar ended  -->
+    <!-- Main container for the quiz categories -->
+    <div class="quiz-container">
+      <!-- Quiz Box 1 - HTML Quiz -->
+      <div class="quiz-box" id="htmlQuiz">
+        <img src="images/htmllogo.png" alt="HTML Quiz Image" />
+        <h2>HTML Quiz</h2>
+        <p>Test your knowledge of HTML, the language of the web!</p>
+        <a href="quizz/htmlquiz.html"><button>Start HTML Quiz</button></a>
+      </div>
+
+      <!-- Quiz Box 2 - CSS Quiz -->
+      <div class="quiz-box" id="cssQuiz">
+        <img src="images/csslogo.png" alt="CSS Quiz Image" />
+        <h2>CSS Quiz</h2>
+        <p>How well do you know CSS? Test your styling skills!</p>
+        <a href="quizz/cssquiz .html"><button>Start CSS Quiz</button></a>
+      </div>
+
+      <!-- Quiz Box 3 - JavaScript Quiz -->
+      <div class="quiz-box" id="javascriptQuiz">
+        <img src="images/jslogo.png" alt="JavaScript Quiz Image" />
+        <h2>JavaScript Quiz</h2>
+        <p>Challenge your knowledge of JavaScript and programming!</p>
+        <a href="quizz/jsquiz.html"
+          ><button >Start Java Script Quiz</button></a
+        >
+      </div>
+
+      <!-- Quiz Box 4 - Python Quiz -->
+      <div class="quiz-box" id="pythonQuiz">
+        <img src="images/pythonlogo.jpeg" alt="Python Quiz Image" />
+        <h2>Python Quiz</h2>
+        <p>Do you know Python? Let's find out with this quiz!</p>
+        <a href="quizz/pythonquiz.html"><button >Start Python Quiz</button></a>
+      </div>
+    </div>
+    <!-- <a href="quizz/index.html">quizz</a> -->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const loginBtn = document.getElementById("loginBtn");
+        const userSection = document.getElementById("userSection");
+        const userDetails = document.getElementById("userDetails");
+
+        // Check if user is logged in (user name is stored in localStorage)
+        const userName = localStorage.getItem("userName");
+        const userEmail = localStorage.getItem("userEmail");
+        const userPhone = localStorage.getItem("userPhone"); // Assuming email is also saved in localStorage
+
+        // If user is logged in, replace login button with username
+        if (userName) {
+          loginBtn.textContent = userName;
+          loginBtn.style.marginTop = "0 ";
+          loginBtn.setAttribute("id", "userName"); // Change button ID to userName
+
+          // Show user details when hovering over the username
+          document.getElementById("userDetailsName").textContent = userName;
+          document.getElementById("userDetailsEmail").textContent = userEmail;
+          document.getElementById("userPhone").textContent = userPhone;
+          console.log(userName, userEmail, userPhone);
+          // Show the logout button next to the username
+          const logoutButton = document.createElement("button");
+          logoutButton.textContent = "Logout";
+          logoutButton.classList.add("btn", "btn-danger");
+          logoutButton.style.marginTop = "10px";
+          logoutButton.style.marginLeft = "120px";
+          userSection.appendChild(logoutButton);
+
+          // Add logout functionality
+          logoutButton.addEventListener("click", function () {
+            // Clear the user data from localStorage
+            localStorage.removeItem("userName");
+            localStorage.removeItem("userEmail"); // Clear the email if stored
+            
+
+            // Redirect to the login page
+            alert("Logout successful!");
+            window.location.href = "login.html";
+          });
+
+          // Display user details on hover
+          loginBtn.addEventListener("mouseover", function () {
+            userDetails.style.display = "block"; // Show the details
+          });
+
+          loginBtn.addEventListener("mouseout", function () {
+            userDetails.style.display = "none"; // Hide the details
+          });
+        }
+      });
+    </script>
+    </div>
+  </body>
+</html>

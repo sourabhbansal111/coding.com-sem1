@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CODING.COM | htmlquiz</title>
+    <link rel="icon" href="./images/icon.jpg" />
+    <link rel="stylesheet" href="gitquiz.css" />
+
+  </head>
+  <body>
+    <main class="main">
+      
+
+      <div class="container">
+        <section class="quiz-section">
+          <div class="quiz-box">
+            <h1>time remaining  <span id="timerDisplay" class="timer">10:00</span></h1>
+            <div class="quiz-header">
+              <span>Quiz based on HTML question</span>
+              <span class="header-score">Score: 0 / 20</span>
+            </div>
+            <h2 class="question-text"></h2>
+            <div class="option-list">
+              
+            </div>
+            <div class="quiz-footer">
+              <span class="question-total">1 of 20 Questions</span>
+              <button class="next-btn">Next</button>
+            </div>
+          </div>
+
+          <div class="result-box">
+            <h2>Quiz Result!</h2>
+            <div class="percentage-container">
+              <div class="circular-progress">
+                <span class="progress-value">0%</span>
+              </div>
+
+              <span class="score-text">Your Score 0 out of 20</span>
+            </div>
+
+            <div class="buttons">
+              <button class="tryAgain-btn">Try Again</button>
+              <button style="background-color: red; " class="goHome-btn"><a href="../quizz.html" style="color: white; text-decoration: none;">Go To Home</a></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="home">
+          <div class="home-content">
+            <h1>HTML Quiz</h1>
+            <p>
+            </p>
+            <button class="start-btn">Start Quiz</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div class="popup-info">
+      <h2>Quize Guide</h2>
+      <span class="info"
+        >Before you start, carefully read the rules and instructions provided
+        for the quiz. This will help you understand how the quiz works,
+        including scoring, time limits, and any special rules.</span
+      >
+      <span class="info"
+        >1. Read each question carefully to understand what is being
+        asked.</span
+      >
+      <span class="info"
+        >2. If it's a multiple-choice question, read all the answer choices
+        before selecting the one you think is correct.</span
+      >
+      <span class="info"
+        >3. If there's a time limit, pace yourself accordingly. Don't spend too
+        much time on a single question.</span
+      >
+      <span class="info"
+        >4. Check for any mistakes or overlooked questions.</span
+      >
+
+      <div class="btn-group">
+        <button class="info-btn exit-btn">Exit Quiz</button>
+        <a href="#" class="info-btn continue-btn" id="startButton">Continue</a>
+      </div>
+    </div>
+
+    <script src="gitq.js"></script>
+    <script src="htmlques.js"></script>
+  </body>
+</html>

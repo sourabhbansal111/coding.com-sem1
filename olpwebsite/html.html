@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CODING.COM | HTML</title>
+    <link href="./images/icon.jpg" rel="icon" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Reddit+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Inria Sans", sans-serif;
+        overflow-x: hidden;
+        box-sizing: border-box;
+      }
+      .nav-link:hover {
+        background-color: rgba(128, 128, 128, 0.307);
+        color: #5a0aff;
+      }
+      a {
+        text-decoration: none;
+      }
+      .container-custom {
+        max-width: 1440px;
+        margin: 0 auto; /* Center the container */
+      }
+      .container-fluid{
+        background-color: white; 
+        padding: 0 10px 0 10px
+      }
+
+      .main {
+        width: 100vw;
+        height: 80px;
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        background-color: #fcfcfc;
+        border-bottom: 1px rgba(128, 128, 128, 0.263) solid;
+        transition: background-color 0.3s ease;
+      }
+
+      .main:hover {
+        background-color: #eaeaea;
+      }
+
+      .boxes {
+        background-color: #f3f4f6;
+        padding-top: 180px;
+
+      }
+
+      .boxes div {
+        border: none;
+        width: 1000px;
+        border-radius: 7px;
+        background-color: white;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 0 0 40px 30px;
+        padding: 30px;
+        font-size: 1.15rem;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .boxes div:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .boxes div h1 {
+        font-size: 2rem;
+        padding: 0 0 10px 20px;
+        color: #1f2839;
+        font-family: "Reddit Sans";
+      }
+
+      .boxes div ul {
+        padding: 20px 10px 10px 10px;
+        font-size: 1.15rem;
+        color: #1f2839;
+      }
+
+      .boxes div img {
+        width: 800px;
+      }
+
+      .boxes div video {
+        width: 800px;
+      }
+      
+    
+      #userName {
+        position: relative;
+      }
+
+      #userDetails {
+        display: none; /* Hide details initially */
+        position: absolute;
+        background-color: white;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        /* Adjust as needed */
+      }
+      .navbar-brand{
+        margin-left: 200px;
+      }
+
+      #userName:hover + #userDetails {
+        display: block; /* Show details when hovering over the username */
+      }
+      @media (max-width: 900px) {
+        #logoo{
+        background-image: url(images/logo.jpg);
+        height: 50px;
+        width: 150px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+
+        margin-right: 50px;
+      }
+
+      }
+      @media (max-width: 600px) {
+        .boxes div {
+          width: 320px;
+        }
+        .boxes div img {
+          width: 260px;
+        }
+        .boxes div video {
+          width: 260px;
+        }
+        #loginButtonContainer {
+          padding: 0;
+        } 
+        .boxes {
+        padding-top: 210px;
+
+      }
+      #logoo{
+        background-image: url(images/logo.jpg);
+        height: 50px;
+        width: 150px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+
+        margin: 0 30px 0 20px;
+      }
+      
+      .navbar-brand{
+        margin-left: 0;
+        display: none;
+      }
+      .container-fluid{
+        background-color: white; 
+        padding: 0 0 0 50px
+      }
+      }
+      .navbar-toggler{
+        margin-top: 10px;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container-custom">
+      <!-- nav bar starts here -->
+      <div>
+        <nav
+          class="navbar navbar-expand-lg bg-body-tertiary fixed-top container-custom " 
+        >
+          <div
+            class="container-fluid"
+            
+          >
+            <!-- Main Navbar with Links -->
+            <!-- <a class="navbar-brand" href="index.html"><p class="text-primary nav-link">Home</p></a> -->
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav gap-3">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="index.html"
+                    ><p class="text-primary">Home</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="courses.html"
+                    ><p class="text-primary">Courses</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="html.html"
+                    ><p class="text-primary">HTML</p></a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="CSS.html"
+                    ><p class="text-primary">CSS</p></a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="aboutus.html"
+                    ><p class="text-primary">About Us</p></a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    href="quizz.html"
+                    ><p class="text-primary">quiz</p></a
+                  >
+                </li>
+              </ul>
+              <a class="navbar-brand" href="#" >
+                <img src="/images/logo.jpg" alt="Logo" width="130" height="50" />
+              </a>
+            </div>
+            <div id="logoo"></div>
+
+            
+
+            <div
+            id="userDetails"
+            style="
+              display: none;
+              position: sticky;
+              background-color: white;
+              box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+              padding: 0 8px 0 8px;
+            "
+          >
+            <!-- User details will go here -->
+            <p><strong>Name:</strong> <span id="userDetailsName"></span></p>
+            <p><strong>Email:</strong> <span id="userDetailsEmail"></span></p>
+            <p><strong>Phone No.:</strong> <span id="userPhone"></span></p>
+          </div>
+          <div
+            id="loginButtonContainer"
+            style="
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+              padding-bottom: 20px;
+              overflow: hidden;
+            "
+          >
+            <div
+              id="userSection"
+              
+              style="width: 300px; height: 110px; "
+            >
+              <a
+                href="login.html"
+                style="
+                  width: 280px;
+                  height: 55px;
+                  color: white;
+                  padding-right: 50px;
+                "
+                ><button
+                  id="loginBtn"
+                  class="btn btn-primary"
+                  style="
+                    width: 280px;
+                    height: 55px;
+                    padding: 10px;
+                    overflow-y: hidden;
+                    margin-top: 30px;
+                  "
+                >
+                  Login
+                </button></a
+              >
+            </div>
+
+            <span id="userNameDisplay" style="display: none"></span>
+          </div>
+        </div>
+      </nav>
+      </div>
+      <!-- nav bar ended  -->
+       <div class="boxes">
+        <div>
+            <h1>COURSE</h1>
+            <p>Today, I'm writing this tutorial to create a resource that will help you learn HTML in less than 30 days.
+                Here's a recommended timeline for learning HTML, based on your educational background:</p>
+            <ul>
+                <li>High School students and younger: Around 25 days.</li>
+                <li>Those beyond High School: Around 20 days.</li>
+                <li>College students and above: Around 10-20 days</li>
+            </ul>
+            <p>You may be wondering why I'm discussing these timelines. It's important for me to set expectations before
+                you
+                start your journey of learning html with me.</p>
+        </div>
+        <div>
+            <h1>What is HTML?</h1>
+            <p>HTML (HyperText Markup Language) was created by Tim Berners-Lee in 1991 as a standard for creating web
+                pages.
+                It's a markup language used to structure content on the web, defining elements like headings,
+                paragraphs,
+                links, and images. HTML forms the backbone of web content. In layman's terms, HTML is like the skeleton
+                of a
+                website. It's a set of instructions that tells a web browser how to display text, images, videos, and
+                other
+                elements on a webpage. Think of it as the building blocks that create the structure and look of a
+                website,
+                similar to how bricks and mortar are used to build a house.</p>
+            <p>In a nutshell:</p>
+            <ul>
+                <li>HTML is the language of the web, used to create websites.</li>
+                <li>HTML defines the barebone structure or layout of web pages that we see on the Internet.</li>
+                <li>HTML consists of a set of tags contained within an HTML document, and the associated files typically
+                    have either a ".html" or ".htm" extension.</li>
+                <li>There are several versions of HTML, with HTML5 being the most recent version.
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h1>Features of HTML</h1>
+            <ul>
+                <li>It is platform-independent. For example, Chrome displays the same pages identically across different
+                    operating systems such as Mac, Linux, and Windows.
+                </li>
+                <li>Images, videos, and audio can be added to a web page (For example - YouTube shows videos on their
+                    website)
+                </li>
+                <li>HTML is a markup language and not a programming language.
+                </li>
+                <li>It can be integrated with other languages like CSS, JavaScript, etc. to show interactive (or
+                    dynamic)
+                    web pages
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h1>Why the Term HyperText & Markup Language?</h1>
+            <p>The term 'Hypertext Markup Language' is composed of two main words: 'hypertext' and 'markup language.'
+                'Hypertext' refers to the linking of text with other documents, while 'markup language' denotes a
+                language
+                that utilizes a specific set of tags.</p>
+            <p>Thus, HTML is the practice of displaying text, graphics, audio, video etc. in a certain way using special
+                tags. </p>
+            <p><b>Note:</b> Tags are meaningful texts enclosed in angle braces, like '&lt;...&gt;'. For example, the
+                '&lt;head&gt;' tag. Each tag has a unique meaning and significance in building an HTML page, and it can
+                influence the web page in various ways.
+            </p>
+        </div>
+        <div>
+            <h1>Quick Exercise: </h1>
+            <p>Open a webpage of your choice, right-click on the browser, and select 'View Page Source,' and then you
+                will
+                see the HTML code for that page. </p>
+            <video src="./videos/quick exercise.mp4" autoplay="autoplay" loop="loop" muted controls="controls">
+                <p>This is the code that the server sent to display the page you're currently viewing. In this tutorial,
+                    we'll learn how to write this type of code using HTML. </p>
+                </div>
+        <div>
+            <h1>A beautiful analogy to understand HTML, CSS, and JavaScript: </h1>
+            <img src="./images/analogy.jpg"/>
+            <p>In building a webpage, think of HTML, CSS, and JavaScript as different parts of a car. HTML is like the
+                car's
+                skeleton, forming the basic structure and frame. CSS adds the paint and finishing touches, making the
+                car
+                look appealing with color, style, and design. JavaScript is similar to the engine and mechanical parts,
+                infusing the car with functionality, movement, and interactive features. Similarly, when developing a
+                website, HTML lays out the structure, CSS enhances its visual appeal, and JavaScript provides
+                interactivity
+                and dynamic content </p>
+        </div>
+        <div>
+            <h1>History of HTML: </h1>
+            <ul>
+                <li>In 1989, Tim Berners-Lee established the World Wide Web (www), and in 1991, he created the first
+                    version
+                    of HTML.
+                </li>
+                <li>From 1995 to 1997, further work was done to develop and refine different versions of HTML.
+                </li>
+                <li>In 1999, a committee was organized that standardized HTML 4.0, a version still used by many today.
+                </li>
+                <li>The latest and most stable version of HTML is 5, also known as HTML5.
+                </li>
+            </ul>
+            <p>Feel free to read more history of HTML here on the HTML Wikipedia page but I will move ahead and cover
+                important aspects of HTML.
+                In the next tutorial, we'll continue our journey and understand how websites work</p>
+        </div>
+        <div>
+            <h1>HTML Working</h1>
+            <p>You must have heard of frontend and backend. Frontend refers to the visible part of a website or app that
+                users interact with, like the tables, images, and buttons. It's built using languages like HTML, CSS,
+                and JavaScript. The backend, on the other hand, handles behind-the-scenes operations like storing and
+                processing data when users interact with the frontend. It uses languages like Python, Ruby, and Java. In
+                essence, frontend is what users see, while backend manages the functionality.</p>
+        </div>
+        <div>
+            <h1>How do websites work?</h1>
+            <p>When we want to access any information on the internet, we search for it using a web browser. The web
+                browser retrieves the content from web servers, where it is stored in the form of HTML documents.
+
+                An HTML document is created by writing code with specific tags in a code editor of your choice. The
+                document is then saved with the '.html' extension. Once saved, the browser interprets the HTML document,
+                reads it, and renders the web page.
+
+            </p>
+            <img src="./images/browser.jpg"/>
+            <p>The text editor has the HTML code of a website. This website can now be viewed in a beautifully rendered
+                format using a computer program known as a web browser.</p>
+        </div>
+        <div>
+            <h1>What is a Web Browser?</h1>
+            <p>A web browser is a program that understands HTML tags and renders them in a human-readable format that is
+                easily viewable by people visiting the website. Developers write code in HTML because it's a
+                straightforward way to instruct the web browser on what to display. In the next section, I'll show you
+                how to set up VS Code for writing your own HTML code and rendering it in a web browser.</p>
+        </div>
+        <div>
+            <h1>What is an HTML Document?</h1>
+            <p>An HTML document is a text document saved with the '.html' or '.htm' extension, containing text and
+                specific tags enclosed in '<>'. These tags provide the necessary instructions for configuring the web
+                    page. The tags themselves are standardized and fixed. The structure of an HTML document will be
+                    explained later in this HTML tutorial.</p>
+        </div>
+        <div>
+            <h1>What is a Rendered Page:</h1>
+            <p>The rendered page is the output screen of our HTML Document which is the page displayed on the browser.
+            </p>
+        </div>
+        <div>
+            <h1>How does a basic website work?</h1>
+            <ul>
+                <li>Web Browser(client) requests websites from the web server.</li>
+                <li>Web server in return sends HTML, CSS, and JavaScript files to it.
+                </li>
+                <li>HTML, CSS, and JavaScript files are parsed by a web browser which is responsible for showing you a
+                    beautiful website.
+                </li>
+            </ul>
+        </div>
+        <div>
+            <h1>How does a browser work?</h1>
+            <p>A web browser plays a crucial role in parsing and rendering HTML code to the client. A web browser is a
+                complex program that performs many tasks behind the scenes. Here's a summary of how it works:</p>
+            <ul>
+                <li>A browser is an application that reads HTML documents and displays them as web pages. Browsers can't
+                    access the content directly from where it's stored; this is where servers come into play.</li>
+                <li>A server acts as an intermediary, listening to browser requests and fulfilling them by delivering
+                    the HTML document to the browser.
+                    Web browsers perform two main tasks: parsing and rendering.</li>
+                <li>Web browsers perform two main tasks: parsing and rendering.</li>
+                <li>During the parsing stage, the browser receives raw bytes, which are converted into characters. These
+                    characters are then converted into tokens, which in turn are transformed into nodes. These nodes are
+                    organized into a tree-like data structure known as the DOM (Document Object Model). </li>
+                <li>Once the DOM tree is constructed, the browser moves on to the rendering stage. At this point, each
+                    node in the DOM tree is rendered and displayed on the screen.</li>
+            </ul>
+            <p>Dont worry about how browser exactly works just yet. Rather focus on learning HTML. In the next tuotrial
+                we will install VS Code and some extensions for writing our HTML code.</p>
+        </div>
+        <div>
+            <h1>HTML Installation</h1>
+            <p>Let's get our hands dirty and start preparing to write some code. In this tutorial, we will install VS
+                Code and some related extensions for faster and more efficient HTML development.</p>
+        </div>
+        <div>
+            <h1>What are the prerequisites to learning HTML?</h1>
+            <p>I can safely say that there are no prerequisites to learning HTML. HTML is the language of the web and is
+                often the first step that web developers take in learning to code.</p>
+        </div>
+        <div>
+            <h1>Tools needed to make an HTML page: </h1>
+            <ol>
+                <li>
+                    <b>HTML Editor:</b> It's a straightforward tool where every piece of HTML content must be
+                    written. You can use any text editor of your choice. In this tutorial, we're using Visual Studio
+                    Code because it's lightweight and open-source.
+
+                    Popular editors for HTML development include text editors like Notepad++ and TextEdit, code editors
+                    such as Sublime Text and Visual Studio Code, and full-fledged IDEs like WebStorm and Eclipse. Online
+                    platforms like CodePen and JSFiddle are also commonly used for quick HTML editing and testing.
+                </li>
+                <p><b>Note: You can write HTML even in a Notepad. Text editors like VS code make these things
+                        easier.</b></p>
+                <li> <b>Browser:</b> HTML tags are not displayed by browsers; instead, they are read and interpreted to
+                    render the web page. In a web browser, HTML structures are displayed in a styled and visually
+                    appealing form. In this tutorial, we are using Google Chrome. Other commonly used browsers include
+                    Chromium, Firefox, Safari on Mac, and Microsoft Edge.</li>
+            </ol>
+        </div>
+        <div>
+            <h1>Installation & Setup of Visual Studio Code for HTML:</h1>
+            <p>We will install and set up HTML to optimize its utility for creating web pages. Additionally, we'll
+                install extensions in Visual Studio Code to enhance its functionality. If you're unsure about which
+                editor to use, you can confidently start with Visual Studio Code. You won't regret it; it's one of the
+                best free code editors available in the market.</p>
+            <ul>
+                <li>Search for "Visual Studio Code download" on Google</li>
+                <li>Download Visual Studio Code for your Operating System. I am using Windows so I will install it for
+                    Windows
+                    Here is a quick video showing VS Code Installation:</li>
+                <video src="./videos/download-vscode.mp4" autoplay="autoplay" loop="loop" muted controls="controls"
+                    >
+            </ul>
+        </div>
+        <div>
+            <h1>Live Server Extension</h1>
+            <p>In addition, we'll be installing the Live Server extension in our Visual Studio Code editor to view live
+                reload pages.The Live Server extension is used to launch a local development server with a live reload
+                feature for
+                HTML pages. Here is a quick video showing the installation of the VS Code 'Live Server' extension:</p>
+            <video src="./videos/live-server-installation.mp4" autoplay="autoplay" loop="loop" muted controls="controls"
+                >
+        </div>
+        <div>
+            <h1>Your Journey to Creating Your First Website Begins Here!</h1>
+            <p>Let's mark this as an important milestone: the creation of your first website! And what's a better way to
+                start than with the traditional "Hello, World!"?</p>
+        </div>
+        <div>
+            <h1>Why "Hello, World!"? </h1>
+            <p>In the programming world, "Hello, World!" is more than just a phrase. It's a tradition, an emotion, a
+                simple program that teaches you the syntax and gets you started. And guess what? HTML is no different!
+            </p>
+            <p>Our first website will display the text 'Hello World'</p>
+        </div>
+        <div>
+            <h1>Let's Get Started: Setting Up Your VS Code</h1>
+            <p>If you haven't already set up your environment, let's begin by opening Visual Studio Code (VS Code).</p>
+            <img src="./images/vs-code-open.png" alt="vs code interface">
+        </div>
+        <div>
+            <h1>Creating a New File</h1>
+            <p>Click on "Open Folder" and open a folder somewhere on your computer. I am opening a folder named
+                html-tutorial </p>
+            <p>Once VS Code is open, you'll want to create a new file:</p>
+            <ol>
+                <li>Click on the "New File" icon in VS Code.
+                </li>
+                <li>Type the filename as "index.html" and hit Enter.
+                </li>
+            </ol>
+            <video src="./videos/2023-08-26 19-12-34.mp4" autoplay="autoplay" loop="loop" muted controls="controls"
+                >
+        </div>
+        <div>
+            <h1>Pasting the Code</h1>
+            <p>Now that your file is ready, copy the following code and paste it into your "index.html" file.</p>
+            <img src="./images/boiler-plate-code.png" alt="boiler-plate-code" />
+        </div>
+        <div>
+            <h1>Going Live using the "live server" extension</h1>
+            <p>To see your webpage in action, locate the "Go Live" icon at the bottom-right corner of your VS Code
+                window and click it. If you don't see this icon, you probably haven't installed the Live Server
+                extension, which we discussed in a previous tutorial.</p>
+            <img src="./images/vs-code-go-live.png" alt="boiler-plate-code" />
+        </div>
+        <div>
+            <h1>Your First Website is Live!</h1>
+            <p>Congratulations! If you've followed along, you should now see your very first website displaying the
+                classic "Hello, World!" message.</p>
+            <img src="./images/hello-world-html.png" alt="boiler-plate-code" />
+        </div>
+        <div>
+            <h1>Live Preview Extension </h1>
+            <p>Another useful extension for working with HTML in VS Code is 'HTML Preview.' To install it, simply click
+                on the extensions icon in VS Code and type 'HTML Preview' in the search bar. Install it!</p>
+            <img src="./images/preview-html-extension.png" alt="boiler-plate-code" />
+            <p>Now, you will see a button within VS Code. Clicking on this button will allow you to preview your HTML
+                right within the editor.</p>
+            <img src="./images/preview-button-live-html-preview.png" alt="boiler-plate-code" />
+            <p>Once you click the button, you'll see a live preview of your HTML directly within VS Code.</p>
+            <img src="./images/live-preview-html-in-action.png" alt="boiler-plate-code" />
+            <p>You don't even need a browser to render plain HTML. This live preview feature in VS Code is perfect for
+                this HTML tutorial, allowing you to build and preview your entire HTML website without ever leaving the
+                editor.</p>
+        </div>
+        <div>
+            <h1>HTML Page Structure </h1>
+            <p>An HTML document is structured using a set of nested tags. Each tag is enclosed within &lt;…&rthree;
+                angle brackets
+                and acts as a container for content or other HTML tags. Let's take a look at a basic HTML document
+                structure: </p>
+            <img src="./images/set-of-nested-tags.png" alt="boiler-plate-code" />
+            <p>This is how the title appears on an HTML page: </p>
+            <video src="./videos/title.mp4" autoplay="autoplay" loop="loop" muted controls="controls">
+                <p>A typical HTML page looks like this: </p>
+                <img src="./images/typical-html-page.png" alt="boiler-plate-code" />
+        </div>
+        <div>
+            <h1>DOCTYPE Declaration </h1>
+            <p>The
+                &lt;!DOCTYPE html&gt; declaration informs the web browser about the HTML version being used. The latest
+                version is HTML5. But if this changes in the future (maybe 10 years down the line), the doctype
+                declaration will be helpful!
+            </p>
+        </div>
+        <div>
+            <h1>HTML Root Element </h1>
+            <p>The &lt;html&gt; tag is the root element that encapsulates all the content on the page. </p>
+            <p>The &lt;/html&gt; tag marks the end of the &lt;html&gt; section. </p>
+        </div>
+        <div>
+            <h1>Head Section
+            </h1>
+            <p>The &lt;head&gt; tag contains metadata and links to external resources like CSS and JavaScript files.
+            </p>
+            <p>The &lt;/hea&gt; tag marks the end of the &lt;head&gt; section.
+            </p>
+        </div>
+        <div>
+            <h1>Title Tag</h1>
+            <p>The &lt;title&gt; tag sets the title of the web page, which is displayed in the browser's title bar or
+                tab. </p>
+        </div>
+        <div>
+            <h1>Body Tag </h1>
+            <p>The &lt;body&gt; tag contains the visible content of the web page. This is where text, images, and other
+                elements go. </p>
+            <p>The &lt;/body&gt; tag marks the end of the visible content of the web page. </p>
+        </div>
+        <div>
+            <h1>Summary </h1>
+            <ul>
+                <li>The &lt;!DOCTYPE html&gt; tag specifies that the document is an HTML5 document.</li>
+                <li>The &lt;html lang="en"&gt; tag defines the document to be in English. </li>
+                <li>The &lt;head&gt; section contains metadata and the title of the webpage, which appears in the
+                    browser's title bar. </li>
+                <li>The &lt;body&gt; section contains the content that will be displayed on the webpage. </li>
+                <li>The h1 and p are two types of tags. We will learn about more tags in the later section </li>
+            </ul>
+        </div>
+        <diV>
+            <h1>Visualization of an HTML Document: </h1>
+            <img src="./images/html-tag-structure-image.png" alt="boiler-plate-code" />
+        </diV>
+        <div>
+            <h1>How This Content Appears in a Web Browser: </h1>
+            <p>Consider this html code: </p>
+            <img src="./images/content-in-web-browser.png" alt="boiler-plate-code" />
+            <p>Below is an image showing how this HTML document will be rendered in a web browser: </p>
+            <img src="./images/html-headings.png" alt="boiler-plate-code" />
+        </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const loginBtn = document.getElementById("loginBtn");
+          const userSection = document.getElementById("userSection");
+          const userDetails = document.getElementById("userDetails");
+  
+          // Check if user is logged in (user name is stored in localStorage)
+          const userName = localStorage.getItem("userName");
+          const userEmail = localStorage.getItem("userEmail");
+          const userPhone = localStorage.getItem("userPhone"); // Assuming email is also saved in localStorage
+  
+          // If user is logged in, replace login button with username
+          if (userName) {
+            loginBtn.textContent = userName;
+            loginBtn.style.marginTop = "0 ";
+            loginBtn.setAttribute("id", "userName"); // Change button ID to userName
+  
+            // Show user details when hovering over the username
+            document.getElementById("userDetailsName").textContent = userName;
+            document.getElementById("userDetailsEmail").textContent = userEmail;
+            document.getElementById("userPhone").textContent = userPhone;
+            console.log(userName, userEmail, userPhone);
+            // Show the logout button next to the username
+            const logoutButton = document.createElement("button");
+            logoutButton.textContent = "Logout";
+            logoutButton.classList.add("btn", "btn-danger");
+            logoutButton.style.marginTop = "10px";
+            logoutButton.style.marginLeft = "120px";
+            userSection.appendChild(logoutButton);
+  
+            // Add logout functionality
+            logoutButton.addEventListener("click", function () {
+              // Clear the user data from localStorage
+              localStorage.removeItem("userName");
+              localStorage.removeItem("userEmail"); // Clear the email if stored
+              
+  
+              // Redirect to the login page
+              alert("Logout successful!");
+              window.location.href = "login.html";
+            });
+  
+            // Display user details on hover
+            loginBtn.addEventListener("mouseover", function () {
+              userDetails.style.display = "block"; // Show the details
+            });
+  
+            loginBtn.addEventListener("mouseout", function () {
+              userDetails.style.display = "none"; // Hide the details
+            });
+          }
+        });
+      </script>
+    </body>
+  </html>
+  

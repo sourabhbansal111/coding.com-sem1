@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Example</title>
+    <style>
+        .timer {
+            font-size: 2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Button to start the timer -->
+    <button onclick="startTimer()">Start Timer</button>
+
+    <!-- Display timer -->
+    <div id="timerDisplay" class="timer">4</div>
+
+    <script>
+        let timer;
+        let timeRemaining = 4;
+
+        function startTimer() {
+            // Disable the button to prevent restarting while the timer is running
+            document.querySelector('button').disabled = true;
+
+            // Start a countdown timer
+            timer = setInterval(function() {
+                timeRemaining--;
+
+                // Update the displayed time
+                document.getElementById('timerDisplay').textContent = timeRemaining;
+
+                // When the timer reaches zero
+                if (timeRemaining <= 0) {
+                    clearInterval(timer);  // Stop the timer
+                    // alert("Time's up!");    // Alert the user
+                    document.querySelector('button').disabled = false;  // Re-enable the button
+                }
+            }, 1000);  // 1000 ms = 1 second
+        }
+    </script>
+
+</body>
+</html>
+
+
+<a href="index.html">go to</a>
